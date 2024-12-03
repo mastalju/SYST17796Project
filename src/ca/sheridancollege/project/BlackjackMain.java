@@ -28,7 +28,7 @@ public class BlackjackMain {
                     continue;
                 }
                 break;
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number.");
             }
         }

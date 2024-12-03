@@ -11,12 +11,14 @@ import java.util.ArrayList;
  */
 public class Deck extends GroupOfCards {
     public Deck() {
-        super(52);
-        initializeDeck();
+        super(52); // Passes value 52 to GroupOfCards constructor 
+        initializeDeck(); // Creates a deck of 52 cards ready to be used in game
     }
     
+    // Method to initialize the deck of cards that will be used in the game
     public void initializeDeck() {
-        ArrayList<Card> deck = getCards();
+        ArrayList<Card> deck = getCards(); // Gets list of cards
+        // Creates cards for each suit and rank
         for (BlackjackCard.Suit suit : BlackjackCard.Suit.values()) {
             for (BlackjackCard.Rank rank : BlackjackCard.Rank.values()) {
                 deck.add(new BlackjackCard(suit, rank));
@@ -24,17 +26,14 @@ public class Deck extends GroupOfCards {
         }
     }
     
-    /**
-     * Draws the top card from the deck.
-     * 
-     * @return the drawn BlackjackCard, or null if the deck is empty.
-     */
+    // Draws card from deck
     public BlackjackCard drawCard() {
         if (getCards().isEmpty()) {
-            System.out.println("Deck is empty. Reshuffling...");
+            System.out.println("Deck is empty. Reshuffling");
             initializeDeck();
             shuffle();
         }
+        // Removes top card from the deck
         return (BlackjackCard) getCards().remove(0);
     }
 }

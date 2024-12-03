@@ -10,9 +10,10 @@ import java.util.ArrayList;
  * @author Julian Mastalerz
  */
 public class BlackjackPlayer extends Player {
-    private ArrayList<BlackjackCard> hand;
-    private boolean isDealer;
+    private ArrayList<BlackjackCard> hand; // stores players hand
+    private boolean isDealer; // Used to check if player is dealer
     
+    // Constructor that sets each player's name, hand and if they are the dealer
     public BlackjackPlayer(String name, boolean isDealer) {
         super(name);
         this.hand = new ArrayList<>();
@@ -27,12 +28,7 @@ public class BlackjackPlayer extends Player {
         hand.add(card);
     }
     
-    /**
-     * Calculates the total value of the player's hand.
-     * Aces can count as 1 or 11.
-     * 
-     * @return the total hand value.
-     */
+    // Calculates value of players hand
     public int getHandValue() {
         int value = 0;
         int aceCount = 0;

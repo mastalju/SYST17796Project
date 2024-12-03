@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class BlackjackGame extends Game {
     private Deck deck;
+    // Created dealer as a BlackjackPlayer type because dealer needs same methods as a player
     private BlackjackPlayer dealer;
     private Scanner scanner;
 
@@ -25,11 +26,6 @@ public class BlackjackGame extends Game {
         scanner = new Scanner(System.in);
     }
 
-    /**
-     * Adds a player to the game.
-     * 
-     * @param player the BlackjackPlayer to add.
-     */
     public void addPlayer(BlackjackPlayer player) {
         getPlayers().add(player);
     }
@@ -65,11 +61,6 @@ public class BlackjackGame extends Game {
         dealerTurn();
     }
 
-    /**
-     * Handles a single player's turn.
-     * 
-     * @param player the BlackjackPlayer whose turn it is.
-     */
     private void playerTurn(BlackjackPlayer player) {
         System.out.println("\n" + player + "'s turn:");
         while (true) {
@@ -92,9 +83,6 @@ public class BlackjackGame extends Game {
         }
     }
 
-    /**
-     * Handles the dealer's turn following standard Blackjack rules.
-     */
     private void dealerTurn() {
         System.out.println("\nDealer's turn:");
         displayHand(dealer);
@@ -109,11 +97,6 @@ public class BlackjackGame extends Game {
         }
     }
 
-    /**
-     * Displays a player's hand and total value.
-     * 
-     * @param player the BlackjackPlayer whose hand to display.
-     */
     private void displayHand(BlackjackPlayer player) {
         if (player.isDealer()) {
             // For the dealer, only display all cards if it's the dealer's turn
